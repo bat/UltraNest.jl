@@ -23,3 +23,10 @@ The UltraNest.jl package is licensed under the MIT "Expat" License:
 > OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 > SOFTWARE.
 > 
+
+UltraNest.jl is a Julia wrapper for the Python ultranest package, which itself
+is licensed under the GNU General Public License (GPL). UltraNest.jl itself
+contains no ultranest code in any form, and so does not constitute a derived
+work by itself. However, if UltraNest.jl is distributed together with the
+ultranest Python package, the terms of the GPL will need to be taken into
+consideration.

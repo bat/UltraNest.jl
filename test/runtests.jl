@@ -3,6 +3,6 @@
 import Test
 Test.@testset "Package UltraNest" begin
 
-# test code goes here
+include("test_ultra_nest.jl")
 
 end # testset
