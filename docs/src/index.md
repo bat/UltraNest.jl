@@ -44,7 +44,7 @@ See the the [UltraNest Python documentation](https://johannesbuchner.github.io/U
 
 As an example, we'll sample a multi-modal distribution that is tricky to handle using other methods like MCMC.
 
-In addition to UltraNest.jl, we'll be using the Julia packages [Distributions.jl](https://github.com/JuliaStats/Distributions.jl), [Plots.jl](https://github.com/JuliaPlots/Plots.jl) and [Measurements.jl](https://github.com/JuliaPhysics/Measurements.jl), so they need to be [added to your current Julia environment](https://docs.julialang.org/en/v1/stdlib/Pkg) to run this example.
+In addition to UltraNest.jl, we'll be using the Julia packages [Distributions.jl](https://github.com/JuliaStats/Distributions.jl), [Plots.jl](https://github.com/JuliaPlots/Plots.jl) and [Measurements.jl](https://github.com/JuliaPhysics/Measurements.jl), so they need to be [added to your current Julia environment](https://docs.julialang.org/en/v1/stdlib/Pkg/) to run this example.
 
 Let's define a multi-modal distribution with fully separated modes that will act as our likelihood:
 
@@ -107,9 +107,9 @@ end
 nothing #hide
 ```
 
-For computationally expensive likelihood functions, it will often be beneficial to parallelize this using [Julia's multi-threaded and distributed computing capabilities](https://docs.julialang.org/en/v1/manual/parallel-computing/).
+For computationally expensive likelihood functions, it will often be beneficial to parallelize this using [Julia's multi-threaded and distributed computing capabilities](https://docs.julialang.org/en/v1/manual/parallel-computing/). Note that the Python UltraNest package comes with MPI support as well - it should also be possible to use this for distributed parallelization, in combination with Julia's muli-threading for host-level parallelization.
 
-Now we're ready to sample our posterior:
+Now we're ready to sample our posterior. We'll use UltraNest's [`ReactiveNestedSampler`](https://johannesbuchner.github.io/UltraNest/ultranest.html?module-ultranest.integrator#ultranest.integrator.ReactiveNestedSampler):
 
 ```@example using_ultranest
 using UltraNest
@@ -162,3 +162,5 @@ which matches our expectation based on the volume of our flat prior:
 ```@example using_ultranest
 logz_expected = -log(prod(maximum.(dist.v) .- minimum.(dist.v)))
 ```
+
+In addition to processing UltraNest's output with Julia directly, you can also let `ultranest.ReactiveNestedSampler` create on-disk output via keyword argument `log_dir = "somepath/"`.
