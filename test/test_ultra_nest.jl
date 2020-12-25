@@ -54,7 +54,7 @@ using HypothesisTests
 
     X_iid = Array(rand(dist, 10^4)')   
     pvalues_ad = [pvalue(KSampleADTest(X_un[:,i], X_iid[:,i])) for i in axes(X_un, 2)]
-    @test all(x -> x > 0.0005, pvalues_ad)
+    @test pvalues_ad[1] > 1E-4 && pvalues_ad[2] > 1E-4 && pvalues_ad[3] > 1E-4
 
     logz = result["logz"]
     logzerr = result["logzerr"]
