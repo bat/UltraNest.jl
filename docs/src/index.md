@@ -42,7 +42,7 @@ See the the [UltraNest Python documentation](https://johannesbuchner.github.io/U
 
 ## Usage example
 
-As an example, well sample a multi-modal distribution that is tricky to handle using other methods like MCMC.
+As an example, we'll sample a multi-modal distribution that is tricky to handle using other methods like MCMC.
 
 In addition to UltraNest.jl, we'll be using the Julia packages [Distributions.jl](https://github.com/JuliaStats/Distributions.jl), [Plots.jl](https://github.com/JuliaPlots/Plots.jl) and [Measurements.jl](https://github.com/JuliaPhysics/Measurements.jl), so they need to be [added to your current Julia environment](https://docs.julialang.org/en/v1/stdlib/Pkg) to run this example.
 
@@ -59,7 +59,7 @@ dist = product_distribution([
 nothing #hide
 ```
 
-To use UltraNest, we need to define express the prior of our model as a transformation from the unit hypercube to the model parameters. Here' we'll simply use a flat prior over the support `dist`:
+To use UltraNest, we need to define express the prior of our model as a transformation from the unit hypercube to the model parameters. Here we will simply use a flat prior over the support `dist`:
 
 ```@example using_ultranest
 prior_transform = let dist=dist
