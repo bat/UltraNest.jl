@@ -7,6 +7,14 @@
 using Documenter
 using UltraNest
 
+# Doctest setup
+DocMeta.setdocmeta!(
+    UltraNest,
+    :DocTestSetup,
+    :(using UltraNest);
+    recursive = true
+)
+
 makedocs(
     sitename = "UltraNest",
     modules = [UltraNest],
@@ -17,15 +25,15 @@ makedocs(
     pages = [
         "Home" => "index.md",
         "API" => "api.md",
-        "LICENSE" => "LICENSE.md",
+        "LICENSE" => "LICENSE.md"
     ],
     doctest = ("fixdoctests" in ARGS) ? :fix : true,
     linkcheck = !("nonstrict" in ARGS),
-    strict = !("nonstrict" in ARGS),
+    warnonly = ("nonstrict" in ARGS)
 )
 
 deploydocs(
     repo = "github.com/bat/UltraNest.jl.git",
     forcepush = true,
-    push_preview = true,
+    push_preview = true
 )

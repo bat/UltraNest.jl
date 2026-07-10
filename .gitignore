@@ -5,3 +5,9 @@
 .ipynb_checkpoints
 .vscode
 Manifest.toml
+
+# CondaPkg environments
+.CondaPkg
+
+# Julia local package preferences
+LocalPreferences.toml
