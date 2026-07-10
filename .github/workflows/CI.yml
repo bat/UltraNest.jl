@@ -34,9 +34,9 @@ jobs:
         arch:
           - x64
         include:
-          - version: 1
-            os: ubuntu-latest
-            arch: x86
+          # No 32-bit x86: CondaPkg cannot bootstrap there, since neither pixi
+          # nor micromamba ships i686 binaries, and conda-forge provides no
+          # 32-bit Linux packages to install the ultranest package from.
           - version: 1
             os: macOS-latest
             arch: arm64

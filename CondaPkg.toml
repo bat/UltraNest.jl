@@ -1,0 +1,5 @@
+[deps]
+# Not from PyPI: ultranest publishes source distributions only, and building
+# its Cython extensions fails on Windows. Upper bound so that a future
+# ultranest v5 with breaking changes is not picked up automatically:
+ultranest = ">=3.5,<5"

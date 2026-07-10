@@ -1,7 +1,5 @@
 # This file is a part of UltraNest.jl, licensed under the MIT License (MIT).
 
-__precompile__(true)
-
 """
     UltraNest
 
@@ -10,12 +8,7 @@ Julia wrapper for Python nested sampling package
 """
 module UltraNest
 
-using LinearAlgebra
-using Random
-using Statistics
-
-using PyCall
-
+using PythonCall
 
 """
     const ultranest
@@ -30,31 +23,29 @@ smplr = ultranest.ReactiveNestedSampler(paramnames, my_likelihood, kwargs...)
 result = smplr.run()
 ```
 
-See the the
+See the
 [UltraNest Python documentation](https://johannesbuchner.github.io/UltraNest/)
 regarding usage.
 
-    !!! note
+!!! note
 
     Convention for matrices holding multiple parameter vectors (resp.
     multiple samples): In UltraNest.jl, using Julia's column-major array
     indexing, parameter vectors are stored as rows (not columns) in the
     matrices.
+
+!!! note
+
+    Python code must not be run on multiple Julia threads simultaneously.
+    Either interact with `ultranest` only from a single Julia thread, or
+    use the locking mechanisms provided by the `PythonCall.GIL` module.
 """
-const ultranest = PyNULL()
+const ultranest = PythonCall.pynew()
 export ultranest
 
-
-const scipy_stats = PyNULL()
-const numpy = PyNULL()
-
-
-include("ultra_nest.jl")
-
 function __init__()
-    copy!(ultranest, pyimport_conda("ultranest", "ultranest", "conda-forge"))
-    copy!(scipy_stats, pyimport_conda("scipy.stats", "scipy"))
-    copy!(numpy, pyimport("numpy"))    
+    PythonCall.pycopy!(ultranest, pyimport("ultranest"))
+    return nothing
 end
 
 end # module
