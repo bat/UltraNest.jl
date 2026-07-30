@@ -55,7 +55,14 @@ using PythonCall
         transform = prior_transform_vectorized,
         vectorized = true
     )
-    py_result = smplr.run(min_num_live_points = 4000, cluster_num_live_points = 400)
+    # These tests check that UltraNest is wrapped correctly, not the quality of
+    # UltraNest itself, so use only as many live points as the checks below
+    # need. Progress output is disabled because writing it is slow on some
+    # platforms and dominated the runtime of the test on Windows.
+    py_result = smplr.run(
+        min_num_live_points = 1000, cluster_num_live_points = 100,
+        show_status = false, viz_callback = false
+    )
     result = pyconvert(Dict{String,Any}, py_result)
     @test result isa Dict
 
