@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Home · UltraNest</title><meta name="title" content="Home · UltraNest"/><meta property="og:title" content="Home · UltraNest"/><meta property="twitter:title" content="Home · UltraNest"/><meta name="description" content="Documentation for UltraNest."/><meta property="og:description" content="Documentation for UltraNest."/><meta property="twitter:description" content="Documentation for UltraNest."/><meta property="og:url" content="https://bat.github.io/UltraNest.jl/stable/"/><meta property="twitter:url" content="https://bat.github.io/UltraNest.jl/stable/"/><link rel="canonical" href="https://bat.github.io/UltraNest.jl/stable/"/><script data-outdated-warner src="assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="assets/documenter.js"></script><script src="search_index.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href>UltraNest</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li class="is-active"><a class="tocitem" href>Home</a><ul class="internal"><li><a class="tocitem" href="#Usage-example"><span>Usage example</span></a></li></ul></li><li><a class="tocitem" href="api/">API</a></li><li><a class="tocitem" href="LICENSE/">LICENSE</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Home</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Home</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/bat/UltraNest.jl" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/bat/UltraNest.jl/blob/main/docs/src/index.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="UltraNest.jl"><a class="docs-heading-anchor" href="#UltraNest.jl">UltraNest.jl</a><a id="UltraNest.jl-1"></a><a class="docs-heading-anchor-permalink" href="#UltraNest.jl" title="Permalink"></a></h1><p>This is a Julia wrapper for Python nested sampling package <a href="https://github.com/JohannesBuchner/UltraNest">UltraNest</a>.</p><p>Nested sampling allows Bayesian inference on arbitrary user-defined likelihoods. In particular, posterior probability distributions on model parameters are constructed, and the marginal likelihood (&quot;evidence&quot;) Z is computed. The former can be used to describe the parameter constraints of the data, the latter can be used for model comparison (via <em>Bayes factors</em>) as a measure of the prediction parsimony of a model.</p><p>UltraNest provides novel, advanced techniques (see <a href="https://johannesbuchner.github.io/UltraNest/method.html">how it works</a>). They are especially remarkable for being free of tuning parameters and theoretically justified. Beyond that, UltraNest has support for Big Data sets and high-performance computing applications.</p><p>This Julia package is currently just a very thin wrapper around the Python ultranest package, which is automatically installed via <a href="https://github.com/JuliaPy/CondaPkg.jl">CondaPkg.jl</a>.</p><p>In the future, some Julianic wrapper functions may be added for ultranests main functionalities, but UltraNest.jl is primarily intended to be a lower-level package that can act as a sampling backend for high-level packages.</p><p>Currently UltraNest.jl exports a single global constant <code>ultranest</code>. <a href="https://github.com/JuliaPy/PythonCall.jl">PythonCall.jl</a> makes using ultranest from Julia very similar to the equivalent Python code.</p><p>Python:</p><pre><code class="language-python hljs">import ultranest
+# ... define log-likelihood and prior_transform ...
+paramnames = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+smplr = ultranest.ReactiveNestedSampler(paramnames, loglikelihood, transform = prior_transform, vectorized = True)
+result = smplr.run(min_num_live_points = 400, cluster_num_live_points = 40)</code></pre><p>Julia:</p><pre><code class="language-julia hljs">using UltraNest
+# ... define log-likelihood and prior_transform ...
+paramnames = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+smplr = ultranest.ReactiveNestedSampler(paramnames, loglikelihood, transform = prior_transform, vectorized = true)
+result = smplr.run(min_num_live_points = 4000, cluster_num_live_points = 400)</code></pre><p>See the <a href="https://johannesbuchner.github.io/UltraNest/">UltraNest Python documentation</a> regarding usage.</p><div class="admonition is-info" id="Note-877d7fd592099562"><header class="admonition-header">Note<a class="admonition-anchor" href="#Note-877d7fd592099562" title="Permalink"></a></header><div class="admonition-body"><p>Convention for matrices holding multiple parameter vectors (resp. multiple samples): In UltraNest.jl, using Julia&#39;s column-major array indexing, parameter vectors are stored as rows (not columns) in the matrices.</p></div></div><h2 id="Usage-example"><a class="docs-heading-anchor" href="#Usage-example">Usage example</a><a id="Usage-example-1"></a><a class="docs-heading-anchor-permalink" href="#Usage-example" title="Permalink"></a></h2><p>As an example, we&#39;ll sample a multi-modal distribution that is tricky to handle using other methods like MCMC.</p><p>In addition to UltraNest.jl, we&#39;ll be using the Julia packages <a href="https://github.com/JuliaStats/Distributions.jl">Distributions.jl</a>, <a href="https://github.com/JuliaPlots/Plots.jl">Plots.jl</a> and <a href="https://github.com/JuliaPhysics/Measurements.jl">Measurements.jl</a>, so they need to be <a href="https://docs.julialang.org/en/v1/stdlib/Pkg/">added to your current Julia environment</a> to run this example.</p><p>Let&#39;s define a multi-modal distribution with fully separated modes that will act as our likelihood:</p><pre><code class="language-julia hljs">using Distributions
+
+dist = product_distribution([
+    MixtureModel([truncated(Normal(-1, 0.1), -2, 0), truncated(Normal(1, 0.1), 0, 2)], [0.5, 0.5]),
+    MixtureModel([truncated(Normal(-2, 0.25), -3, -1), truncated(Normal(2, 0.25), 1, 3)], [0.3, 0.7]),
+    MixtureModel([truncated(Normal(-5, 0.25), -6, -4), truncated(Normal(5, 0.25), 4, 6)], [0.2, 0.8]),
+])</code></pre><p>To use UltraNest, we need to define express the prior of our model as a transformation from the unit hypercube to the model parameters. Here we will simply use a flat prior over the support <code>dist</code>:</p><pre><code class="language-julia hljs">prior_transform = let dist=dist
+    (u::AbstractVector{&lt;:Real}) -&gt; begin
+        x0 = minimum.(dist.v)
+        Δx = maximum.(dist.v) .- x0
+        u .* Δx .+ x0
+    end
+end</code></pre><p>UltraNest supports vectorized operation, passing multiple parameter vectors to the transformation as a matrix. We need to take into account that in UltraNest.jl, parameters are stored as rows in the matrix:</p><p>UltraNest requires callbacks to return numpy arrays:</p><pre><code class="language-julia hljs">using PythonCall
+np = pyimport(&quot;numpy&quot;)
+
+prior_transform_vectorized = let trafo = prior_transform, np = np
+    (U::AbstractMatrix{&lt;:Real}) -&gt; np.asarray(reduce(vcat, (u -&gt; trafo(u)&#39;).(eachrow(U))))
+end</code></pre><p>Our log-likelihood will simply be the log-PDF of <code>dist</code> for a given set up parameters:</p><pre><code class="language-julia hljs">loglikelihood = let dist = dist
+    function (x::AbstractVector{&lt;:Real})
+        ll = logpdf(dist, x)
+        # logpdf on MixtureModel returns NaN or -Inf in gaps between distributions, and UltraNest
+        # doesn&#39;t like -Inf, so return -1E10:
+        T = promote_type(Float32, typeof(ll))
+        isnan(ll) || (isinf(ll) &amp;&amp; ll &lt; 0) ? T(-1E10) : T(ll)
+    end
+end</code></pre><p>To use UltraNest&#39;s vectorized mode, we need a vectorized version of the likelihood as well:</p><pre><code class="language-julia hljs">loglikelihood_vectorized = let loglikelihood = loglikelihood, np = np
+    # UltraNest has variate in rows:
+    (X::AbstractMatrix{&lt;:Real}) -&gt; np.asarray(loglikelihood.(eachrow(X)))
+end</code></pre><p>For computationally expensive likelihood functions, it will often be beneficial to parallelize this using <a href="https://docs.julialang.org/en/v1/manual/parallel-computing/">Julia&#39;s multi-threaded and distributed computing capabilities</a>. Note that the Python UltraNest package comes with MPI support as well - it should also be possible to use this for distributed parallelization, in combination with Julia&#39;s muli-threading for host-level parallelization.</p><p>Now we&#39;re ready to sample our posterior. We&#39;ll use UltraNest&#39;s <a href="https://johannesbuchner.github.io/UltraNest/ultranest.html?module-ultranest.integrator#ultranest.integrator.ReactiveNestedSampler"><code>ReactiveNestedSampler</code></a>:</p><pre><code class="language-julia hljs">using UltraNest
+
+paramnames = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+smplr = ultranest.ReactiveNestedSampler(pylist(paramnames), loglikelihood_vectorized, transform = prior_transform_vectorized, vectorized = true)
+result = smplr.run(
+    min_num_live_points = 4000, cluster_num_live_points = 400,
+    # Progress output would go to a captured stdout while these docs are
+    # built, which Python cannot write to without blocking:
+    show_status = false, viz_callback = false
+)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">Python:
+{&#39;niter&#39;: 60654, &#39;logz&#39;: np.float64(-5.65871429820709), &#39;logzerr&#39;: np.float64(0…
+       [0.98886673, 0.53743281, 0.14540669],
+       [0.99781269, 0.72314315, 0.21971376],
+       ...,
+       [0.25099328, 0.83309244, 0.91616152],
+       [0.75015612, 0.83387672, 0.91604793],
+       [0.24946191, 0.83325431, 0.91647275]], shape=(60654, 3)), &#39;points&#39;: arra…
+       [ 1.95546693,  0.22459686, -4.25511976],
+       [ 1.99125077,  1.33885891, -3.36343484],
+       ...,
+<span class="sgr90">                     ... 16 more lines ...</span>
+        0.00000000e+00, 3.95118712e-06, 4.12185299e-06]],
+      shape=(60654, 30)), &#39;logl&#39;: array([-1.00000000e+10, -1.00000000e+10, -1.0…
+        1.04441928e+00,  1.04497366e+00,  1.04524248e+00], shape=(60654,))}, &#39;s…
+       [-0.9150846 , -1.92925637,  4.80619504],
+       [ 0.91338467, -1.90905401,  5.24207658],
+       ...,
+       [-1.23379523,  1.92311264, -5.1376172 ],
+       [ 0.99190988,  2.37400746,  4.87993322],
+       [-1.08276681,  1.84237305,  5.30659807]], shape=(60654, 3)), &#39;maximum_li…</code></pre><p><code>result</code> is a Python dict that contains the samples (in weighted and unweighted form), the logarithm of the posterior&#39;s integral and additional valuable information. Since our prior was flat, we can compare the samples generated by UltraNest with truly random (IID) samples drawn from <code>dist</code>:</p><pre><code class="language-julia hljs">X_ultranest = pyconvert(Matrix{Float64}, result[&quot;samples&quot;])
+
+X_iid = Array(rand(dist, 10^4)&#39;)
+
+using Plots
+
+function plot_marginal(d::NTuple{2,Integer})
+    if d[1] == d[2]
+        plt = stephist(X_iid[:,d[1]].+0.01, nbins = 200, normalize = true, label = &quot;IID sampling&quot;, xlabel = paramnames[d[1]])
+        stephist!(plt, X_ultranest[:,d[1]], nbins = 200, normalize = true, label = &quot;UltraNest&quot;)
+        plt
+    else
+        histogram2d(
+            X_ultranest[:,d[1]], X_ultranest[:,d[2]],
+            nbins = 200, xlabel = paramnames[d[1]], ylabel = paramnames[d[2]], legend = :none
+        )
+    end
+end
+
+plot(
+    plot_marginal.([(i, j) for i in 1:3, j in 1:3])...,
+)</code></pre><img src="index-b08c1e50.svg" alt="Example block output"/><p>The log-integral of the posterior computed by UltraNest is</p><pre><code class="language-julia hljs">using Measurements
+
+logz = pyconvert(Float64, result[&quot;logz&quot;])
+logzerr = pyconvert(Float64, result[&quot;logzerr&quot;])
+logz ± logzerr</code></pre><p class="math-container">\[-5.659 \pm 0.036\]</p><p>which matches our expectation based on the volume of our flat prior:</p><pre><code class="language-julia hljs">logz_expected = -log(prod(maximum.(dist.v) .- minimum.(dist.v)))</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">-5.662960480135946</code></pre><p>In addition to processing UltraNest&#39;s output with Julia directly, you can also let <code>ultranest.ReactiveNestedSampler</code> create on-disk output via keyword argument <code>log_dir = &quot;somepath/&quot;</code>.</p></article><nav class="docs-footer"><a class="docs-footer-nextpage" href="api/">API »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.17.0 on <span class="colophon-date" title="Friday 31 July 2026 05:49">Friday 31 July 2026</span>. Using Julia version 1.12.6.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
